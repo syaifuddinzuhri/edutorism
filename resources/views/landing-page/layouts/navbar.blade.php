@@ -9,11 +9,11 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-                    <li><a class="nav-link scrollto" href="#values">Layanan Kami</a></li>
-                    <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Kontak Kami</a></li>
+                    <li><a class="nav-link scrollto active" href="{{ route('home') }}#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('home') }}#about">Tentang Kami</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('home') }}#values">Layanan Kami</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('home') }}#faq">FAQ</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('home') }}#contact">Kontak Kami</a></li>
                     {{-- <li><a href="blog.html">Blog</a></li> --}}
                     {{-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> --}}
                     {{-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> --}}

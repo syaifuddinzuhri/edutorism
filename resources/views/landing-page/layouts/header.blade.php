@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>@yield('title', 'Home') | Edutourism</title>
+    <title>Edutourism Indonesia</title>
     <meta content="" name="description">
 
-    <meta content="" name="keywords">
+    <meta content="energy,education,toursim" name="keywords">
 
     <!-- Favicons -->
     <link href="{{ asset('images/logo1.png') }}" rel="icon">
