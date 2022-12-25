@@ -25,7 +25,6 @@ class ProfileController extends Controller
     public function create()
     {
         //
-        return view('admins.profile.create');
     }
 
     /**
@@ -48,7 +47,6 @@ class ProfileController extends Controller
     public function show($id)
     {
         //
-        return view('admins.profile.detail');
     }
 
     /**
@@ -60,7 +58,6 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
-        return view('admins.profile.edit');
     }
 
     /**

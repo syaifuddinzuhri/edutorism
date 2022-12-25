@@ -1,6 +1,6 @@
 @extends('admins.layouts.main')
 
-@section('title', 'List Layanan')
+@section('title', 'Profile')
 
 @section('content')
 

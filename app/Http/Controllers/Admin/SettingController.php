@@ -25,7 +25,6 @@ class SettingController extends Controller
     public function create()
     {
         //
-        return view('admins.setting.create');
     }
 
     /**
@@ -48,7 +47,6 @@ class SettingController extends Controller
     public function show($id)
     {
         //
-        return view('admins.setting.detail');
     }
 
     /**
@@ -60,7 +58,6 @@ class SettingController extends Controller
     public function edit($id)
     {
         //
-        return view('admins.setting.edit');
     }
 
     /**

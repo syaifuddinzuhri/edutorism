@@ -35,11 +35,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/', function () {
             return redirect()->route('dashboard.index');
         });
-        Route::resource('dashboard', DashboardController::class);
+        Route::resource('dashboard', DashboardController::class)->only(['index']);
         Route::resource('service', ServiceController::class);
         Route::resource('flow', FlowController::class);
         Route::resource('faq', FaqController::class);
-        Route::resource('profile', ProfileController::class);
-        Route::resource('setting', SettingController::class);
+        Route::resource('profile', ProfileController::class)->only(['index']);
+        Route::resource('setting', SettingController::class)->only(['index']);
     });
 });
