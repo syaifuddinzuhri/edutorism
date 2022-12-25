@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\FlowController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +36,10 @@ Route::prefix('admin')->group(function () {
             return redirect()->route('dashboard.index');
         });
         Route::resource('dashboard', DashboardController::class);
+        Route::resource('service', ServiceController::class);
+        Route::resource('flow', FlowController::class);
+        Route::resource('faq', FaqController::class);
+        Route::resource('profile', ProfileController::class);
+        Route::resource('setting', SettingController::class);
     });
 });

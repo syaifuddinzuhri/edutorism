@@ -4,8 +4,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard "
-            target="_blank">
+        <a class="navbar-brand m-0" href=" {{ route('dashboard.index') }}">
             <img src="{{ asset('images/logo1.png') }}" class="navbar-brand-img h-100" alt="main_logo">
             <span class="ms-1 font-weight-bold text-white">Administrator</span>
         </a>
@@ -14,7 +13,8 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-success" href="../pages/dashboard.html">
+                <a class="nav-link text-white {{ request()->is('admin/dashboard') || request()->is('admin/dashboard/*') ? 'active bg-gradient-success' : '' }}"
+                    href="{{ route('dashboard.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
@@ -22,7 +22,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
+                <a class="nav-link text-white {{ request()->is('admin/service') || request()->is('admin/service/*') ? 'active bg-gradient-success' : '' }}{{ request()->is('admin/service') || request()->is('admin/service/*') ? 'active bg-gradient-success' : '' }}"
+                    href="{{ route('service.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
@@ -30,7 +31,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
+                <a class="nav-link text-white {{ request()->is('admin/flow') || request()->is('admin/flow/*') ? 'active bg-gradient-success' : '' }}"
+                    href="{{ route('flow.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">all_inclusive</i>
                     </div>
@@ -38,7 +40,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
+                <a class="nav-link text-white {{ request()->is('admin/faq') || request()->is('admin/faq/*') ? 'active bg-gradient-success' : '' }}"
+                    href="{{ route('faq.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">info</i>
                     </div>
@@ -46,7 +49,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
+                <a class="nav-link text-white {{ request()->is('admin/profile') || request()->is('admin/profile/*') ? 'active bg-gradient-success' : '' }}"
+                    href="{{ route('profile.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">account_circle</i>
                     </div>
@@ -54,7 +58,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/sign-up.html">
+                <a class="nav-link text-white {{ request()->is('admin/setting') || request()->is('admin/setting/*') ? 'active bg-gradient-success' : '' }}"
+                    href="{{ route('setting.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">extension</i>
                     </div>
