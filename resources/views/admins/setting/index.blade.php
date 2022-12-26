@@ -22,7 +22,50 @@
                         <h6 class="text-white text-capitalize ps-3">Data Pengaturan</h6>
                     </div>
                 </div>
-                <div class="card-body px-0 pb-2">
+                <div class="card-body">
+                    <form action="{{ route('setting.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="" class="mb-0">Email</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="email" name="email" class="form-control" required placeholder="Email" value="{{ $data->email ?? '' }}">
+                                </div>
+                                <label for="" class="mb-0">WhatsApp</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="number" name="whatsapp" class="form-control" required
+                                        placeholder="Whatsapp" value="{{ $data->whatsapp ?? '' }}">
+                                </div>
+                                <label for="" class="mb-0">Instagram</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="text" name="instagram" class="form-control" placeholder="Username Instagram" value="{{ $data->instagram ?? '' }}">
+                                </div>
+                                <label for="" class="mb-0">Facebook</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="text" name="facebook" class="form-control" placeholder="Username Facebook" value="{{ $data->facebook ?? '' }}">
+                                </div>
+                                <button class="btn btn-sm btn-success" type="submit">Simpan</button>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="mb-0">Alamat</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="text" name="address" class="form-control" placeholder="Alamat" value="{{ $data->address ?? '' }}" required>
+                                </div>
+                                <label for="" class="mb-0">Judul Jumbotron</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="text" name="hero_title" class="form-control" placeholder="Judul Jumbotron" value="{{ $data->hero_title ?? '' }}" required>
+                                </div>
+                                <label for="" class="mb-0">Sub Judul Jumbotron</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="text" name="hero_subtitle" class="form-control" placeholder="Sub Judul Jumbotron" value="{{ $data->hero_subtitle ?? '' }}" required>
+                                </div>
+                                <label for="" class="mb-0">Link Pendaftaran</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <input type="text" name="register_link" class="form-control" placeholder="Link Pendaftaran" value="{{ $data->register_link ?? '' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

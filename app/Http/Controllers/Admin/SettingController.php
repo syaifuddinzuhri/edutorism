@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('admins.setting.index');
+        $data = Setting::first();
+        return view('admins.setting.index', compact('data'));
     }
 
     /**
@@ -35,7 +37,16 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+
+        $data = Setting::first();
+        if ($data) {
+            $data->update($payload);
+        } else {
+            Setting::create($payload);
+        }
+        toast('Data profil berhasil disimpan', 'success');
+        return redirect()->back();
     }
 
     /**

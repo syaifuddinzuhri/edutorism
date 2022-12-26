@@ -7,14 +7,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites</h2>
+                    <h1 data-aos="fade-up">{{ $setting->hero_title ?? '' }}</h1>
+                    <h2 data-aos="fade-up" data-aos-delay="400">{{ $setting->hero_subtitle ?? '' }}</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center text-lg-start">
-                            <a href="#about"
+                            <a href="{{ $setting->register_link ?? '' }}" target="_blank"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Get Started</span>
+                                <span>Daftar Sekarang</span>
                                 <i class="bi bi-arrow-right"></i>
+                            </a>
+                            <a href="{{ $setting && $setting->whatsapp ? 'https://wa.me/' . $setting->whatsapp : ''  }}" target="_blank"
+                                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                <span>Hubungi Admin</span>
+                                <i class="bi bi-whatsapp"></i>
                             </a>
                         </div>
                     </div>
@@ -83,8 +88,8 @@
                                             <img src="{{ asset('uploads/icon') }}/{{ $item->icon }}" class="img-fluid"
                                                 alt="">
                                         @else
-                                            <img src="{{ asset('landing-page') }}/assets/img/values-1.png" class="img-fluid"
-                                                alt="">
+                                            <img src="{{ asset('landing-page') }}/assets/img/values-1.png"
+                                                class="img-fluid" alt="">
                                         @endif
                                         <h3>{{ $item->name }}</h3>
                                         <p class="text-dark">{{ Str::limit($item->description, 60) }}
@@ -262,21 +267,21 @@
                                 <div class="info-box">
                                     <i class="bi bi-geo-alt"></i>
                                     <h3>Address</h3>
-                                    <p>New York, NY 535022</p>
+                                    <p>{{ $setting->address ?? '' }}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-box">
                                     <i class="bi bi-telephone"></i>
                                     <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55</p>
+                                    <p>{{ $setting->whatsapp ?? '' }}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-box">
                                     <i class="bi bi-envelope"></i>
                                     <h3>Email Us</h3>
-                                    <p>info@example.com</p>
+                                    <p>{{ $setting->email ?? '' }}</p>
                                 </div>
                             </div>
                             <div class="col-md-6">

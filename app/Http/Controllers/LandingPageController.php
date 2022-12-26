@@ -6,6 +6,7 @@ use App\Models\Faq;
 use App\Models\Flow;
 use App\Models\Profile;
 use App\Models\Service;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 
@@ -22,18 +23,23 @@ class LandingPageController extends Controller
         $flow = Flow::orderBy('number')->get();
         $faq = Faq::get();
         $profile = Profile::first();
-        return view('landing-page.home', compact('services', 'flow', 'faq', 'profile'));
+        $setting = Setting::first();
+        return view('landing-page.home', compact('services', 'flow', 'faq', 'profile', 'setting'));
     }
 
     public function detailLayanan($id)
     {
+        $setting = Setting::first();
+        $profile = Profile::first();
         $data = Service::find($id);
-        return view('landing-page.detail-layanan', compact('data'));
+        return view('landing-page.detail-layanan', compact('data', 'setting', 'profile'));
     }
 
     public function layanan()
     {
+        $setting = Setting::first();
+        $profile = Profile::first();
         $data = Service::get();
-        return view('landing-page.layanan', compact('data'));
+        return view('landing-page.layanan', compact('data', 'setting', 'profile'));
     }
 }
