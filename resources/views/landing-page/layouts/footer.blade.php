@@ -9,7 +9,7 @@
                     </a>
                     <p>{{ $profile->description ?? '' }}</p>
                     <div class="social-links mt-3">
-                        <a href="{{ $setting && $setting->facebook ? '' : '' }}" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+                        {{-- <a href="{{ $setting && $setting->facebook ? '' : '' }}" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a> --}}
                         <a href="{{ $setting && $setting->whatsapp ? 'https://wa.me/' . $setting->whatsapp : '' }}" target="_blank" class="facebook"><i class="bi bi-whatsapp"></i></a>
                         <a href="{{ $setting && $setting->instagram ? 'https://www.instagram.com/' . $setting->instagram : '' }}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
                     </div>

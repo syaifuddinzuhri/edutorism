@@ -40,10 +40,10 @@
                                 <div class="input-group input-group-outline my-3">
                                     <input type="text" name="instagram" class="form-control" placeholder="Username Instagram" value="{{ $data->instagram ?? '' }}">
                                 </div>
-                                <label for="" class="mb-0">Facebook</label>
+                                {{-- <label for="" class="mb-0">Facebook</label>
                                 <div class="input-group input-group-outline my-3">
                                     <input type="text" name="facebook" class="form-control" placeholder="Username Facebook" value="{{ $data->facebook ?? '' }}">
-                                </div>
+                                </div> --}}
                                 <button class="btn btn-sm btn-success" type="submit">Simpan</button>
                             </div>
                             <div class="col-md-6">
