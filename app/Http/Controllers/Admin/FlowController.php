@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class FlowController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -38,7 +38,10 @@ class FlowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        Flow::create($payload);
+        toast('Data alur proses berhasil disimpan', 'success');
+        return redirect()->route('flow.index');
     }
 
     /**
@@ -61,8 +64,8 @@ class FlowController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view('admins.flow.edit');
+        $data  = Flow::find($id);
+        return view('admins.flow.edit', compact('data'));
     }
 
     /**
@@ -74,7 +77,11 @@ class FlowController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $payload = $request->all();
+        $data  = Flow::find($id);
+        $data->update($payload);
+        toast('Data alur proses berhasil diupdate', 'success');
+        return redirect()->route('flow.index');
     }
 
     /**
@@ -85,6 +92,9 @@ class FlowController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data  = Flow::find($id);
+        $data->delete();
+        toast('Data alur proses berhasil dihapus', 'success');
+        return redirect()->route('flow.index');
     }
 }

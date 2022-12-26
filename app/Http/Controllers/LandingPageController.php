@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Flow;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -16,7 +17,8 @@ class LandingPageController extends Controller
         Artisan::call("config:cache");
 
         $services = Service::limit(3)->get();
-        return view('landing-page.home', compact('services'));
+        $flow = Flow::orderBy('number')->get();
+        return view('landing-page.home', compact('services', 'flow'));
     }
 
     public function detailLayanan($id)

@@ -98,9 +98,9 @@
                                     class="bi bi-arrow-right"></i></a>
                         </div>
                     @else
-                    <div class="col-12 text-center">
-                        <p class="text-danger">Opps! Data belum ada. Silahkan hubungi admin!</p>
-                    </div>
+                        <div class="col-12 text-center">
+                            <p class="text-danger">Opps! Data belum ada. Silahkan hubungi admin!</p>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -179,33 +179,18 @@
                     <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
                         <div class="row align-self-center gy-4">
 
-                            <div class="col-md-12" data-aos="zoom-out" data-aos-delay="200">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Eos aspernatur rem</h3>
+                            @if (count($flow) > 0)
+                                @foreach ($flow as $item)
+                                <div class="col-12" data-aos="zoom-out" data-aos-delay="200">
+                                    <div class="feature-box d-flex align-items-center">
+                                        <i class="bi bi-check"></i>
+                                        <h3>{{ $item->title }}</h3>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-12" data-aos="zoom-out" data-aos-delay="300">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Facilis neque ipsa</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12" data-aos="zoom-out" data-aos-delay="400">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Volup amet voluptas</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12" data-aos="zoom-out" data-aos-delay="500">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Rerum omnis sint</h3>
-                                </div>
-                            </div>
+                                @endforeach
+                            @else
+                                <p class="text-danger">Ooops! Data belum ada. Silahkan hubungi admin.</p>
+                            @endif
                         </div>
 
                     </div>
