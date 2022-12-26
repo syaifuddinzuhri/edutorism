@@ -39,25 +39,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="align-middle text-center">
-                                        <span class="text-secondary text-xxs">1</span>
-                                    </td>
-                                    <td class="align-middle">
-                                        <span class="text-secondary text-sm">lorem5Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit. Reprehenderit, voluptatem.</span>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <a href="javascript:;" class="btn btn-info mb-0" data-toggle="tooltip"
-                                            data-original-title="Edit">
-                                            Edit
-                                        </a>
-                                        <a href="javascript:;" class="btn btn-danger mb-0" data-toggle="tooltip"
-                                            data-original-title="Hapus">
-                                            Hapus
-                                        </a>
-                                    </td>
-                                </tr>
+                                @if (count($data) > 0)
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xxs">1</span>
+                                            </td>
+                                            <td class="align-middle">
+                                                <span class="text-secondary text-sm">lorem5Lorem ipsum dolor sit amet
+                                                    consectetur
+                                                    adipisicing elit. Reprehenderit, voluptatem.</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <a href="javascript:;" class="btn btn-info mb-0" data-toggle="tooltip"
+                                                    data-original-title="Edit">
+                                                    Edit
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-danger mb-0" data-toggle="tooltip"
+                                                    data-original-title="Hapus">
+                                                    Hapus
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td class="align-middle text-center" colspan="3">
+                                            <span class="text-secondary text-sm">Data tidak ditemukan</span>
+                                        </td>
+                                    </tr>
+                                @endif
                             </tbody>
                         </table>
                     </div>
