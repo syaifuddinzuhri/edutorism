@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('admins.profile.index');
+        $data = Profile::first();
+        return view('admins.profile.index', compact('data'));
     }
 
     /**
@@ -35,7 +37,37 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        $data = Profile::first();
+
+        if ($data) {
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $extension = $file->getClientOriginalExtension();
+                $image_name = 'image-' . time() . '.' . $extension;
+                $tujuan_upload = 'uploads/images';
+                $file->move($tujuan_upload, $image_name);
+                $payload['image'] = $image_name;
+            } else {
+                unset($payload['image']);
+            }
+            $data->update($payload);
+        } else {
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $extension = $file->getClientOriginalExtension();
+                $image_name = 'image-' . time() . '.' . $extension;
+                $tujuan_upload = 'uploads/images';
+                $file->move($tujuan_upload, $image_name);
+                $payload['image'] = $image_name;
+            } else {
+                toast('Gambar Harus Diisi', 'error');
+                return redirect()->back();
+            }
+            Profile::create($payload);
+        }
+        toast('Data profil berhasil disimpan', 'success');
+        return redirect()->back();
     }
 
     /**

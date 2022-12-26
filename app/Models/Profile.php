@@ -11,7 +11,7 @@ class Profile extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'iamge',
+        'image',
         'description',
     ];
 }

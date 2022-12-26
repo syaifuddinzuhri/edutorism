@@ -40,7 +40,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('service', ServiceController::class);
         Route::resource('flow', FlowController::class);
         Route::resource('faq', FaqController::class);
-        Route::resource('profile', ProfileController::class)->only(['index']);
-        Route::resource('setting', SettingController::class)->only(['index']);
+        Route::resource('profile', ProfileController::class)->only(['index', 'store']);
+        Route::resource('setting', SettingController::class)->only(['index', 'store']);
     });
 });

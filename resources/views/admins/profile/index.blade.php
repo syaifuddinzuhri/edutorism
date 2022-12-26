@@ -21,7 +21,36 @@
                         <h6 class="text-white text-capitalize ps-3">Data Profil</h6>
                     </div>
                 </div>
-                <div class="card-body px-0 pb-2">
+                <div class="card-body">
+                    <form action="{{ route('profile.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    @if ($data && $data->image)
+                                        <div class="col-md-4">
+                                            <img src="{{ asset('uploads/images/' . $data->image) }}" class="img-fluid"
+                                                alt="">
+                                        </div>
+                                    @endif
+                                    <div class="col-md-8">
+                                        <label for="" class="mb-0">Gambar</label>
+                                        <div class="input-group input-group-outline my-3">
+                                            <input type="file" name="image" class="form-control">
+                                        </div>
+                                        <button class="btn btn-success btn-sm" type="submit">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="" class="mb-0">Deskripsi</label>
+                                <div class="input-group input-group-outline my-3">
+                                    <textarea class="form-control" name="description" id="description" cols="30" rows="20"
+                                        placeholder="Masukkan Deskripsi" required>{{ $data->description ?? '' }}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

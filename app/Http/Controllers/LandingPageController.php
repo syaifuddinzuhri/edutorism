@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use App\Models\Flow;
+use App\Models\Profile;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -20,7 +21,8 @@ class LandingPageController extends Controller
         $services = Service::limit(3)->get();
         $flow = Flow::orderBy('number')->get();
         $faq = Faq::get();
-        return view('landing-page.home', compact('services', 'flow', 'faq'));
+        $profile = Profile::first();
+        return view('landing-page.home', compact('services', 'flow', 'faq', 'profile'));
     }
 
     public function detailLayanan($id)

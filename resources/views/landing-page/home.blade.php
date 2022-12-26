@@ -37,12 +37,8 @@
                     <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="content">
                             <h2>Apa itu Edutourism?</h2>
-                            {{-- <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat
-                                corrupti reprehenderit.</h2> --}}
                             <p>
-                                Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor
-                                consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam
-                                et est corrupti.
+                                {{ $profile->description ?? '' }}
                             </p>
                             {{-- <div class="text-center text-lg-start">
                                 <a href="#"
@@ -55,7 +51,11 @@
                     </div>
 
                     <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="{{ asset('landing-page') }}/assets/img/about.jpg" class="img-fluid" alt="">
+                        @if ($profile && $profile->image)
+                            <img src="{{ asset('uploads/images/' . $profile->image) }}" class="img-fluid" alt="">
+                        @else
+                            <img src="{{ asset('landing-page') }}/assets/img/about.jpg" class="img-fluid" alt="">
+                        @endif
                     </div>
 
                 </div>
@@ -220,14 +220,15 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $item->id }}">
-                                               {{ $item->title }}
+                                                data-bs-toggle="collapse"
+                                                data-bs-target="#faq-content-{{ $item->id }}">
+                                                {{ $item->title }}
                                             </button>
                                         </h2>
                                         <div id="faq-content-{{ $item->id }}" class="accordion-collapse collapse"
                                             data-bs-parent="#faqlist1">
                                             <div class="accordion-body">
-                                               {{ $item->description }}
+                                                {{ $item->description }}
                                             </div>
                                         </div>
                                     </div>
