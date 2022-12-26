@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
 use App\Models\Flow;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class LandingPageController extends Controller
 
         $services = Service::limit(3)->get();
         $flow = Flow::orderBy('number')->get();
-        return view('landing-page.home', compact('services', 'flow'));
+        $faq = Faq::get();
+        return view('landing-page.home', compact('services', 'flow', 'faq'));
     }
 
     public function detailLayanan($id)

@@ -38,7 +38,10 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        Faq::create($payload);
+        toast('Data alur proses berhasil disimpan', 'success');
+        return redirect()->route('faq.index');
     }
 
     /**
@@ -61,8 +64,8 @@ class FaqController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view('admins.faq.edit');
+        $data  = Faq::find($id);
+        return view('admins.faq.edit', compact('data'));
     }
 
     /**
@@ -74,7 +77,11 @@ class FaqController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $payload = $request->all();
+        $data  = Faq::find($id);
+        $data->update($payload);
+        toast('Data alur proses berhasil diupdate', 'success');
+        return redirect()->route('faq.index');
     }
 
     /**
@@ -85,6 +92,9 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data  = Faq::find($id);
+        $data->delete();
+        toast('Data alur proses berhasil dihapus', 'success');
+        return redirect()->route('faq.index');
     }
 }

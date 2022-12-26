@@ -17,8 +17,10 @@
         <div class="col-12">
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                    <div class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3">
+                    <div
+                        class="bg-gradient-success shadow-success border-radius-lg pt-4 pb-3 d-flex align-items-center justify-content-between">
                         <h6 class="text-white text-capitalize ps-3">Data FAQ</h6>
+                        <a href="{{ route('faq.create') }}" class="btn btn-sm btn-light m-0 me-3">Tambah FAQ</a>
                     </div>
                 </div>
                 <div class="card-body px-0 pb-2">
@@ -46,27 +48,28 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xxs">1</span>
+                                                <span class="text-secondary text-xxs">{{ $loop->iteration }}</span>
                                             </td>
                                             <td class="align-middle">
-                                                <span class="text-secondary text-sm">lorem5Lorem ipsum dolor sit amet
-                                                    consectetur
-                                                    adipisicing elit. Reprehenderit, voluptatem.</span>
+                                                <span class="text-secondary text-sm">{{ $item->title }}</span>
                                             </td>
                                             <td class="align-middle">
-                                                <span class="text-secondary text-sm">lorem5Lorem ipsum dolor sit amet
-                                                    consectetur
-                                                    adipisicing elit. Reprehenderit, voluptatem.</span>
+                                                <span class="text-secondary text-sm">{{ Str::limit($item->description, 150) }}</span>
                                             </td>
-                                            <td class="align-middle text-center">
-                                                <a href="javascript:;" class="btn btn-info mb-0" data-toggle="tooltip"
-                                                    data-original-title="Edit">
+                                            <td class="align-middle text-center d-flex justify-content-center">
+                                                <a href="{{ route('faq.edit', $item->id) }}" class="btn btn-info mb-0"
+                                                    data-toggle="tooltip" data-original-title="Edit">
                                                     Edit
                                                 </a>
-                                                <a href="javascript:;" class="btn btn-danger mb-0" data-toggle="tooltip"
-                                                    data-original-title="Hapus">
-                                                    Hapus
-                                                </a>
+                                                <form action="{{ route('faq.destroy', $item->id) }}" method="POST"
+                                                    class="ms-3">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger mb-0" data-toggle="tooltip"
+                                                        data-original-title="Hapus">
+                                                        Hapus
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
