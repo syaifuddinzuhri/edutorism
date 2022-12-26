@@ -2,7 +2,7 @@
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{ route('home') }}" class="logo d-flex align-items-center">
                 <img src="{{ asset('images/logo2.png') }}" alt="">
                 {{-- <span>FlexStart</span> --}}
             </a>

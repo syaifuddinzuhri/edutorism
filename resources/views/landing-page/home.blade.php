@@ -74,55 +74,36 @@
                 </header>
 
                 <div class="row">
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <a href="{{ route('detailLayanan', 'layanan-baru') }}">
-                            <div class="box">
-                                <img src="{{ asset('landing-page') }}/assets/img/values-1.png" class="img-fluid"
-                                    alt="">
-                                <h3>Gratis Konsultasi</h3>
-                                <p class="text-dark">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit.
-                                    Et veritatis id.
-                                </p>
+                    @if (count($services) > 0)
+                        @foreach ($services as $item)
+                            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                                <a href="{{ route('detailLayanan', $item->id) }}">
+                                    <div class="box">
+                                        @if ($item->icon)
+                                            <img src="{{ asset('uploads/icon') }}/{{ $item->icon }}" class="img-fluid"
+                                                alt="">
+                                        @else
+                                            <img src="{{ asset('landing-page') }}/assets/img/values-1.png" class="img-fluid"
+                                                alt="">
+                                        @endif
+                                        <h3>{{ $item->name }}</h3>
+                                        <p class="text-dark">{{ Str::limit($item->description, 60) }}
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+                        @endforeach
+                        <div class="col-12 mt-4 text-center" data-aos="fade-up" data-aos-delay="800">
+                            <a href="{{ route('layanan') }}" class="btn btn-primary btn-main">Lihat Semua Layanan <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    @else
+                    <div class="col-12 text-center">
+                        <p class="text-danger">Opps! Data belum ada. Silahkan hubungi admin!</p>
                     </div>
-
-                    <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-                        <a href="{{ route('detailLayanan', 'layanan-baru') }}">
-                            <div class="box">
-                                <img src="{{ asset('landing-page') }}/assets/img/values-2.png" class="img-fluid"
-                                    alt="">
-                                <h3>Tarif Sesuai Standard Daerah</h3>
-                                <p class="text-dark">Repudiandae amet nihil natus in distinctio suscipit id. Doloremque
-                                    ducimus ea sit non.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-                        <a href="{{ route('detailLayanan', 'layanan-baru') }}">
-                            <div class="box">
-                                <img src="{{ asset('landing-page') }}/assets/img/values-3.png" class="img-fluid"
-                                    alt="">
-                                <h3>Pendampingan dan Pengawasan Pekerjaan</h3>
-                                <p class="text-dark">Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid
-                                    quidem commodi.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-12 mt-4 text-center" data-aos="fade-up" data-aos-delay="800">
-                        <a href="" class="btn btn-primary btn-main">Lihat Semua Layanan <i
-                                class="bi bi-arrow-right"></i></a>
-                    </div>
-
+                    @endif
                 </div>
-
             </div>
-
         </section><!-- End Values Section -->
 
         <!-- ======= Counts Section ======= -->

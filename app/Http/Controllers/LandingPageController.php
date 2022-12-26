@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 
@@ -13,11 +14,20 @@ class LandingPageController extends Controller
         Artisan::call("route:cache");
         Artisan::call("route:clear");
         Artisan::call("config:cache");
-        return view('landing-page.home');
+
+        $services = Service::limit(3)->get();
+        return view('landing-page.home', compact('services'));
     }
 
-    public function detailLayanan($slug)
+    public function detailLayanan($id)
     {
-        return view('landing-page.detail-layanan');
+        $data = Service::find($id);
+        return view('landing-page.detail-layanan', compact('data'));
+    }
+
+    public function layanan()
+    {
+        $data = Service::get();
+        return view('landing-page.layanan', compact('data'));
     }
 }

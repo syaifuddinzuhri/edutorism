@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingPageController::class, 'index'])->name('home');
-Route::get('/layanan/{slug}', [LandingPageController::class, 'detailLayanan'])->name('detailLayanan');
+Route::get('/layanan', [LandingPageController::class, 'layanan'])->name('layanan');
+Route::get('/layanan/{id}', [LandingPageController::class, 'detailLayanan'])->name('detailLayanan');
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'guest'], function () {

@@ -8,49 +8,21 @@
             <div class="container" data-aos="fade-up">
 
                 <header class="section-header">
-                    <h2>Mengapa harus memilih Edutourism?</h2>
-                    <p>BANYAK LAYANAN YANG KAMI SEDIAKAN</p>
+                    <p>{{ $data->name }}</p>
                 </header>
 
                 <div class="row">
-
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <a href="{{ route('detailLayanan', 'layanan-baru') }}">
-                            <div class="box">
-                                <img src="{{ asset('landing-page') }}/assets/img/values-1.png" class="img-fluid"
-                                    alt="">
-                                <h3>Gratis Konsultasi</h3>
-                                <p class="text-dark">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit.
-                                    Et veritatis id.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-                        <a href="{{ route('detailLayanan', 'layanan-baru') }}">
-                            <div class="box">
-                                <img src="{{ asset('landing-page') }}/assets/img/values-2.png" class="img-fluid"
-                                    alt="">
-                                <h3>Tarif Sesuai Standard Daerah</h3>
-                                <p class="text-dark">Repudiandae amet nihil natus in distinctio suscipit id. Doloremque
-                                    ducimus ea sit non.
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-                        <a href="{{ route('detailLayanan', 'layanan-baru') }}">
-                            <div class="box">
-                                <img src="{{ asset('landing-page') }}/assets/img/values-3.png" class="img-fluid"
-                                    alt="">
-                                <h3>Pendampingan dan Pengawasan Pekerjaan</h3>
-                                <p class="text-dark">Quam rem vitae est autem molestias explicabo debitis sint. Vero aliquid
-                                    quidem commodi.
-                                </p>
-                            </div>
-                        </a>
+                    <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                        <p class="text-dark">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit.
+                            Et veritatis id.
+                        </p>
+                        @if ($data->file)
+                            <a href="{{ asset('uploads/file/' . $data->file) }}" class="btn btn-success" target="_blank">Download Silabus</a>
+                        @endif
+                        @if ($data->youtube)
+                            <a href="{{ $data->youtube }}" class="btn btn-danger" target="_blank">Lihat Youtube</a>
+                        @endif
+                        <a href="" class="btn btn-primary">Daftar Sekarang</a>
                     </div>
                 </div>
 
