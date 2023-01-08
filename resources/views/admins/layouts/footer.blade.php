@@ -1,9 +1,9 @@
 
     <!--   Core JS Files   -->
-    <script src="{{ asset('admins') }}/assets/js/core/popper.min.js"></script>
-    <script src="{{ asset('admins') }}/assets/js/core/bootstrap.min.js"></script>
-    <script src="{{ asset('admins') }}/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="{{ asset('admins') }}/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/js/core/popper.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/js/core/bootstrap.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="{{ asset('admin') }}/assets/js/plugins/smooth-scrollbar.min.js"></script>
 
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
@@ -14,7 +14,7 @@
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
-    <script src="{{ asset('admins') }}/assets/js/material-dashboard.min.js?v=3.0.4"></script>
+    <script src="{{ asset('admin') }}/assets/js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 
 </html>
