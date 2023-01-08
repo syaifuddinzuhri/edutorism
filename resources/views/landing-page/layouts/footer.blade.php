@@ -5,7 +5,7 @@
             <div class="row gy-4">
                 <div class="col-lg-5 col-md-12 footer-info">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <img src="{{ asset('images') }}/logo2.png" alt="">
+                        <img src="{{ asset('uploads/images/' . $setting->logo) }}" alt="">
                     </a>
                     <p>{{ $profile->description ?? '' }}</p>
                     <div class="social-links mt-3">

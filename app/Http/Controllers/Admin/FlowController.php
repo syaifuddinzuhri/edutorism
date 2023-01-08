@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Flow;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class FlowController extends Controller
@@ -16,7 +17,8 @@ class FlowController extends Controller
     public function index()
     {
         $data = Flow::get();
-        return view('admins.flow.index', compact('data'));
+        $setting = Setting::first();
+        return view('admins.flow.index', compact('data','setting'));
     }
 
     /**

@@ -15,8 +15,10 @@ class SettingController extends Controller
      */
     public function index()
     {
+        $setting = Setting::first();
         $data = Setting::first();
-        return view('admins.setting.index', compact('data'));
+
+        return view('admins.setting.index', compact('data','setting'));
     }
 
     /**
@@ -40,14 +42,29 @@ class SettingController extends Controller
         $payload = $request->all();
 
         $data = Setting::first();
+
+
+        if ($request->hasFile('logo')) {
+            $file = $request->file('logo');
+            $extension = $file->getClientOriginalExtension();
+            $image_name = 'image-' . time() . '.' . $extension;
+            $tujuan_upload = 'uploads/images';
+            $file->move($tujuan_upload, $image_name);
+            $payload['logo'] = $image_name;
+        } else {
+            unset($payload['logo']);
+        }
+
         if ($data) {
             $data->update($payload);
         } else {
             Setting::create($payload);
         }
+
         toast('Data profil berhasil disimpan', 'success');
         return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.
@@ -80,7 +97,6 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

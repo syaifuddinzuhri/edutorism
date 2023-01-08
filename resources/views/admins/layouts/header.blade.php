@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{{ asset('images/logo1.png') }}" rel="icon">
-    <link href="{{ asset('images/logo1.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('uploads/images/' . $setting->logo) }}" rel="icon">
+    <link href="{{ asset('uploads/images/' . $setting->logo) }}" rel="apple-touch-icon">
     <title>
         @yield('title', 'Dashboard') | Edutourism
     </title>

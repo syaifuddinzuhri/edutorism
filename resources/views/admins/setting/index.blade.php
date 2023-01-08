@@ -63,6 +63,23 @@
                                 <div class="input-group input-group-outline my-3">
                                     <input type="text" name="register_link" class="form-control" placeholder="Link Pendaftaran" value="{{ $data->register_link ?? '' }}" required>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        @if ($data && $data->logo)
+                                            <div class="col-md-4">
+                                                <img src="{{ asset('uploads/images/' . $data->logo) }}" class="img-fluid"
+                                                    alt="">
+                                            </div>
+                                        @endif
+                                        <div class="col-md-8">
+                                            <label for="" class="mb-0">Gambar</label>
+                                            <div class="input-group input-group-outline my-3">
+                                                <input type="file" id="logo" name="logo" class="form-control">
+                                            </div>
+                                            <button class="btn btn-success btn-sm" type="submit">Simpan</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>

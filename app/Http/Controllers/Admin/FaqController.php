@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -16,7 +17,8 @@ class FaqController extends Controller
     public function index()
     {
         $data = Faq::get();
-        return view('admins.faq.index', compact('data'));
+        $setting = Setting::first();
+        return view('admins.faq.index', compact('data','setting'));
     }
 
     /**

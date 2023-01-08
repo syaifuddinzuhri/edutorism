@@ -3,7 +3,7 @@
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
             <a href="{{ route('home') }}" class="logo d-flex align-items-center">
-                <img src="{{ asset('images/logo2.png') }}" alt="">
+                <img src="{{ asset('uploads/images/' . $setting->logo) }}" alt="">
                 {{-- <span>FlexStart</span> --}}
             </a>
 

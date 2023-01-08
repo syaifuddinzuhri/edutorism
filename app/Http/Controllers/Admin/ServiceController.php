@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Service;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -16,7 +17,8 @@ class ServiceController extends Controller
     public function index()
     {
         $data = Service::get();
-        return view('admins.services.index', compact('data'));
+        $setting = Setting::first();
+        return view('admins.services.index', compact('data','setting'));
     }
 
     /**
@@ -79,7 +81,9 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
+
         $data = Service::find($id);
+
         return view('admins.services.edit', compact('data'));
     }
 

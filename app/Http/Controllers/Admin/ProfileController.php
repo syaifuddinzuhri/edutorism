@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -16,7 +17,8 @@ class ProfileController extends Controller
     public function index()
     {
         $data = Profile::first();
-        return view('admins.profile.index', compact('data'));
+        $setting = Setting::first();
+        return view('admins.profile.index', compact('data','setting'));
     }
 
     /**

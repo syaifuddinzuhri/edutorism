@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('hero_subtitle')->nullable();
             $table->string('hero_image')->nullable();
             $table->string('register_link')->nullable();
+            $table->string('logo')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

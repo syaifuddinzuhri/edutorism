@@ -20,5 +20,6 @@ class Setting extends Model
             'hero_subtitle',
             'hero_image',
             'register_link',
+            'logo',
     ];
 }
